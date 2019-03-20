@@ -1,0 +1,30 @@
+$root = '.c-format-item'
+$color =  rgba(158,158,158,.45)
+$selectedColor = rgba(51,146,215,.48)
+
+{$root}
+    position relative
+    border 1px solid rgba(158,158,158,.45)
+
+    &::before
+        content ''
+        display block
+        height 100%
+        width 1px
+        position absolute
+        top 0
+        left 6px
+        background-color $color
+
+    &_selected
+        border-color $selectedColor
+
+        &::before
+            background-color $selectedColor
+
+    &_disabled
+        border-color $lightgray
+
+        &::before
+            background-color $lightgray
+

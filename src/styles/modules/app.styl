@@ -1,0 +1,317 @@
+$root = '.app'
+
+{$root}
+    width 100%
+    min-width 375px
+    height auto
+    color $textColor
+    padding-top 40px
+    padding-bottom 40px
+    font-size 14px
+
+    &__content-wrap
+        width 1140px
+        margin auto
+        display flex
+        justify-content space-between
+
+    &__btn
+        padding 0 25px
+        height 45px
+        font-size 17px
+        color $gray
+        border 1px solid $gray
+        border-radius 5px
+
+    &__expand-btn
+        color $blue
+        border-color $blue
+
+        &:hover
+            box-shadow 1px 1px 2px rgba(51,146,215,.48)
+
+    &__header
+        display flex
+        flex-wrap wrap
+        margin-bottom 47px
+        font-size 17px
+
+    &__header-block
+        display flex
+        height 44px
+        width 60%
+        margin-bottom 24px
+        align-items center
+
+        &:nth-of-type(2n)
+            justify-content flex-end
+            width 40%
+
+        &_spread-items
+            justify-content space-between
+
+    &__header-additional-block
+        display none
+
+    &__items-count
+        font-size 16px
+
+    &__filter-picker-btn
+        font-size 16px
+        svg
+            height 8px
+
+        span
+            margin-right 8px
+
+    &__description
+        flex-direction column
+        align-items flex-end
+        justify-content center
+
+        a
+            font-size 14px
+
+    &__title
+        font-size 30px
+
+    &__sidebar
+        width 212px
+        flex-shrink 0
+        padding-top 170px
+        position relative
+    
+    &__sidebar-hide
+        display none
+
+    &__filter
+        margin-bottom 82px
+
+    &__sidebar-info
+        padding 0 10px
+
+    &__main
+        width 814px
+
+    &__catalog
+        margin-bottom 103px
+
+        {$root}__btn
+            margin auto
+
+    &__catalog-list
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        margin-bottom 14px
+
+    &__design-item
+        display flex
+        flex-direction column
+        align-items center
+        margin-bottom 39px
+        cursor pointer
+
+        &:not(:nth-of-type(3n))
+            margin-right 50px
+
+        &:hover
+            {$root}__design-img-hover
+                display flex
+
+    &__design-img
+        position relative
+        // устанавливаем размеры картинки js-ом
+        // width 214px
+        // height 214px
+        margin-bottom 20px
+        background-color $lightgray
+        background-size cover
+        background-position center
+        overflow hidden
+        box-shadow 3px 3px 3px rgba(0,0,0,.2)
+
+    &__design-img-mask
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        z-index 1
+        background-size 101% 110%
+        background-position center
+
+    &__design-img-hover
+        width 100%
+        height 100%
+        display none
+        flex-direction column
+        justify-content center
+        align-items center
+        background-color rgba(255,255,255,.6)
+        font-size 17px
+
+        svg
+            height 60px
+
+        span
+            margin-top 6px
+
+    &__bottom-title
+        margin-bottom 17px
+        font-size 30px
+        text-align center
+
+    &__bottom-text
+        line-height 24px
+
+    &__product-picker
+        width 100%
+        height 100%
+        display flex
+        justify-content center
+        align-items center
+        position fixed
+        top 0
+        left 0
+        z-index 5000
+        background-color rgba(0,0,0,.6)
+
+    &__product-picker-wrap
+        position relative
+        width 1100px
+        padding 17px
+        background-color #ffffff
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+
+    &__product-picker-top
+        height 81px
+        display flex
+        justify-content space-between
+        align-items center
+
+    &__product-picker-close
+        position absolute
+        top -26px
+        right -26px
+        color #ffffff
+        cursor pointer
+
+        svg
+            height 20px
+            color #ffffff
+
+    &__product-picker-main
+        width 100%
+
+@media (max-width 1240px)
+    {$root}
+        &__content-wrap
+            width 913px
+
+        &__main
+            width 648px
+
+        // &__design-item
+        //     &:not(:nth-of-type(3n))
+        //         margin-right 54px
+
+        // устанавливаем размеры картинки js-ом
+        // &__design-img
+        //     width 180px
+        //     height 180px
+
+        &__product-picker-wrap
+            width 660px
+            height 490px
+            padding 0
+
+        &__product-picker-title
+            font-size 16px
+
+        &__product-picker-subtitle
+            display block
+            font-size 13px
+        
+        &__design-nav
+            display none
+
+        &__product-picker-close
+            top 10px
+            right 10px
+
+            svg
+                color $gray
+
+        &__design
+            padding 14px 30px 0
+
+@media (max-width 1024px)
+    {$root}
+        &__content-wrap
+            width 86%
+        
+        &__sidebar
+            position fixed
+            top 0
+            left -248px
+            padding 48px 8px 0 18px
+            width 248px
+            height 100%
+            overflow-y auto
+            transition left .3s ease
+            background-color #ffffff
+            z-index 100
+            box-shadow 4px 0 6px rgba(0,0,0,.16)
+
+            &.active
+                left 0
+
+        &__sidebar-hide
+            display block
+            position absolute
+            top 10px
+            right 10px
+
+            svg
+                height 18px
+                color $gray
+
+        &__sidebar-info
+            display none
+
+        &__main
+            width 100%
+
+        &__header
+            margin-bottom 10px
+        
+        &__header-block
+            width 100%
+            font-size 13px
+            margin-bottom 10px
+
+        &__header-additional-block
+            display flex
+
+        &__create-btn,
+        &__description
+            display none
+
+@media (max-width 768px)
+    {$root}
+        &__product-picker
+            align-items flex-end
+
+        &__product-picker-wrap
+            width 100%
+            height 100%
+            max-height 568px
+
+@media (max-width 667.5px)
+    {$root}
+        &__design-item
+            &:not(:nth-of-type(3n))
+                margin-right 0

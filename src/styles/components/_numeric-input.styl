@@ -1,0 +1,31 @@
+$root = '.c-numeric-input'
+
+{$root}
+    display flex
+    width auto
+    height 18px
+    border-radius 5px
+    overflow hidden
+    box-shadow 1px 2px 1px $lightgray
+
+    &__native
+        width 30px
+        text-align center
+        border-left 1px solid $lightgray
+        border-right 1px solid $lightgray
+
+    &__btn
+        width 16px
+        display flex
+        justify-content center
+        align-items center
+        cursor pointer
+
+        svg
+            height 11px
+            color $blue
+
+        &_disabled
+            svg
+                color $gray
+

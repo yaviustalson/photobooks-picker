@@ -1,0 +1,379 @@
+$root = '.product-picker'
+
+{$root}
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+
+    &__title
+        font-size 22px
+        font-weight 500
+        padding-left 11px
+        margin-bottom 8px
+
+    &__subtitle
+        display none
+        font-size 13px
+
+    &__design-nav
+        display flex
+        width 180px
+        justify-content space-between
+        font-size 11px
+
+        span
+            width 50%
+            display flex
+            align-items center
+            cursor pointer
+
+            &:hover
+                color $blue
+
+    &__prev-design-btn
+        justify-content flex-start
+
+    &__next-design-btn
+        justify-content flex-end
+        border-left 2px solid rgba(150,150,150,.5)
+
+    &__info
+        height 50px
+        padding 0 19px
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        background-color $superlightgray
+        border-radius 2px
+        box-shadow 1px 1px 3px rgba(0,0,0,.3)
+
+    &__main
+        width 100%
+
+    &__preview
+        width 100%
+        display flex
+        flex-direction column
+        align-items center
+        margin-top 10px
+
+        {$root}__submit
+            display none
+
+    &__preview-wrap
+        width 100%
+        display flex
+        flex-direction column
+        align-items center
+        border-top 2px solid $lightgray
+        border-bottom 2px solid $lightgray
+
+    &__flipper-wrap
+        display flex
+        justify-content space-between
+        align-items center
+        height 413px
+        width 100%
+
+        {$root}__params-slider-btn
+            width 32px
+            height 32px
+
+            svg
+                height 17px
+
+    &__flipper
+        flex-grow 1
+        height 413px
+        display flex
+        justify-content center
+        align-items center
+        z-index 100
+
+    &__params
+        display flex
+        height 150px
+        width 100%
+        justify-content flex-start
+        padding-top 16px
+
+    &__params-block
+        height 100%
+        position relative
+
+        &:not(:last-of-type)
+            width 370px
+            &::after
+                content ''
+                display block
+                height 80%
+                width 2px
+                position absolute
+                top 10%
+                right 0
+                z-index 1
+                background-color $lightgray
+        
+        &:first-of-type
+            width 420px
+
+        &:last-of-type
+            flex-grow 1
+            display flex
+            flex-direction column
+            align-items center
+
+    &__params-slider
+        display flex
+        position relative
+        justify-content space-around
+        align-items center
+        width 100%
+
+        .slick-slider
+            width 70%
+
+    &__params-slider-item
+        height 100%
+        display flex !important
+        flex-direction column
+        justify-content flex-end
+        align-content center
+        padding-top 7px
+
+    &__params-slider-btn
+        width 22px
+        height 22px
+        flex-shrink 0
+        display flex
+        justify-content center
+        align-items center
+        box-shadow 0 0 5px rgba(0,0,0,.25)
+        border-radius 50%
+        cursor pointer
+
+        svg
+            height 11px
+            color $gray
+
+        &:hover
+            box-shadow 0 0 5px $blue
+            svg
+                color $blue
+
+    &__params-title
+        display flex
+        justify-content flex-start
+        align-items center
+        padding-left 12.5%
+        margin-bottom 10px
+
+    &__params-title-add
+        font-size 11px
+
+    &__types
+        {$root}__params-title
+            justify-content space-between
+            padding-right 12.5%
+
+        {$root}__params-slider-item
+            justify-content flex-start
+
+    &__type-item
+        width 100%
+        height 100%
+        background-color #ffffff
+        background-size cover
+        background-position center
+
+    &__submit
+        width 194px
+        height 45px
+        margin-bottom 17px
+        background-color $blue
+        font-size 17px
+        color #ffffff
+        border-radius 3px
+
+        &:hover
+            color #ffffff
+
+    &__price,
+    &__pages-count
+        display flex
+        width 193px
+        justify-content space-between
+        padding 0 14px
+        font-size 11px
+    
+    &__price
+        margin-bottom 3px
+        align-items center
+
+@media (max-width 1240px)
+    {$root}
+        height 100%
+        padding-top 10px
+        flex-direction column
+        justify-content space-between
+        
+        &__title
+            font-size 16px
+
+        &__design,
+        &__main
+            padding 0 30px
+
+        &__design-nav
+            display none
+
+        &__subtitle
+            display block
+
+        &__info
+            width 100%
+            height 32px
+            order 3
+            flex-direction row
+            justify-content space-between
+            background-color #F6F6F6
+            box-shadow 0 -2px 4px rgba(0,0,0,.16)
+            font-size 13px
+
+        &__preview,
+        &__params
+            flex-grow 1
+
+        &__params
+            height auto
+
+        &__params-slider-btn
+            display none
+
+        &__preview-wrap
+            height 100%
+            padding-top 10px
+            border-bottom none
+            justify-content space-between
+
+            {$root}__submit
+                display flex
+
+        &__flipper,
+        &__flipper-wrap
+            height 260px
+
+        &__params
+            display none
+            flex-direction column
+        
+        &__params-block
+            width 100% !important
+            padding 13px 0 4px
+            border-top 2px solid $lightgray
+
+            &::after
+                display none !important
+
+        &__params-title
+            padding-left 0
+            font-size 13px
+
+        &__params-title-add
+            display none
+
+        &__params-slider
+            .slick-slider
+                width 100%
+
+        &__submit
+            font-size 16px
+
+        &_params-active
+            justify-content flex-start
+
+            {$root}__preview
+                display none
+
+            {$root}__params
+                display flex
+
+@media (max-width 768px)
+    {$root}
+        align-items center
+
+        &__design
+            width 80%
+            padding 0
+            padding-bottom 14px
+
+        &__main
+            flex-grow 1
+            padding 0
+
+        &__preview
+            height 100%
+            margin-top 0
+
+        &__preview-wrap
+            justify-content space-around
+            align-items center
+            padding-top 0
+            border-top none
+
+            {$root}__subtitle
+                width 158px
+                text-align center
+        
+        &__preview-wrap,
+        &__params-block
+            border-top none
+            position relative
+
+            &::before
+                content ''
+                display block
+                width 80%
+                height 2px
+                background-color $lightgray
+                position absolute
+                top 0
+                left 10%
+
+        &__params-title
+            width 80%
+            margin auto
+            margin-bottom 21px
+
+        &__info
+            height 50px
+            flex-direction column
+            justify-content space-around
+            padding 5px 0
+        
+        &__params
+            height 100%
+
+            {$root}__params-slider-btn
+                display flex
+
+        &__params-slider
+            .slick-slider
+                width 80%
+
+        &__capacity
+            padding 0
+            justify-content space-around
+            {$root}__submit
+                order 3
+                width 80%
+
+        &__price,
+        &__pages-count
+            width 212px
+        
+
+
+    
+

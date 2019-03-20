@@ -1,0 +1,80 @@
+{% extends "site/sitebase.html" %}
+
+{% block description %}{{ meta_tags.meta_description }}{% endblock %}
+{% block meta_keywords %}{{ meta_tags.keyword }}{% endblock %}
+{% block title %}Фотокниги{% endblock %}
+{% block content %}
+  <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+      window.min_price = {{ min_price|safe }};
+      window.max_price = {{ max_price|safe }};
+      window.grouped_designs = {{ designs|safe }};
+      window.all_themes = {{ visible_themes|safe }};
+      window.all_products = {{ products|safe }};
+      {% if active_theme %}
+          window.active_theme = {{ active_theme|safe }};
+          window.document.innerHTML = window.document.innerHTML + window.active_theme.meta_tags;
+      {% endif %}
+
+      function GetLt() {
+          if ($(window).width() > 1170) return 6;
+          else if ($(window).width() > 970) return 8;
+          else return 2;
+      }
+
+      function GetWrap() {
+          if ($(window).width() > 1170) return 6;
+          else if ($(window).width() > 970) return 4;
+          else return 2;
+      }
+
+      function wrapAll() {
+          setTimeout(function() {
+              $('.row.wrapped').replaceWith(function() { return $(this).contents(); });
+              for (var i = 0; i < $('.row-wrapper').length; i++) {
+                  var $c = $('.row-wrapper').eq(i);
+                  while($c.children('div:not(.row)').length)
+                      $c.children('div:not(.row):lt(' +GetWrap()+')').wrapAll('<div class="row wrapped">');
+              }
+              $('.wrapped:empty').remove();
+          }, 100);
+      }
+      $( window ).resize(function() {
+          wrapAll();
+      });
+
+      $().ready(function () {
+          wrapAll();
+
+      });
+
+
+      $(function() {
+
+      $(window).scroll(function() {
+
+        if($(this).scrollTop() != 0) {
+
+          $('#toTop').fadeIn();
+
+        } else {
+
+          $('#toTop').fadeOut();
+
+        }
+
+      });
+
+      $('#toTop').click(function() {
+
+        $('body,html').animate({scrollTop:0},800);
+
+      });
+
+    });
+  </script>
+
+  <div id="vue-app"></div>
+  <script type="text/javascript" src="/static/photobookspicker/static/js/app.f456ac652b310a659e71.js"></script>
+
+  <div id="toTop"></div>
+{% endblock content %}
